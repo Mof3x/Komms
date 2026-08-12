@@ -7,6 +7,8 @@ public class HazardScanner : MonoBehaviour
     [SerializeField] private float warningDuration = 3f;
     [SerializeField] private bool failPlayer = false;
 
+    [SerializeField] private AudioSource alarmAudio;
+
     private Coroutine warningCoroutine;
 
     private void OnTriggerEnter(Collider other)
@@ -25,6 +27,11 @@ public class HazardScanner : MonoBehaviour
         warningCoroutine = StartCoroutine(
             WarningRoutine()
         );
+
+        if (alarmAudio != null && !alarmAudio.isPlaying)
+        {
+            alarmAudio.Play();
+        }
     }
 
     private void OnTriggerExit(Collider other)

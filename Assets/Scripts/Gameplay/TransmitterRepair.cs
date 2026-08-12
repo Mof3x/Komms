@@ -8,6 +8,7 @@ public class TransmitterRepair : MonoBehaviour, IInteractable
 
     [Header("Optional Audio")]
     [SerializeField] private AudioSource repairAudio;
+[SerializeField] private AudioSource broadcastAudio;
 
     private bool repaired;
 
@@ -57,5 +58,10 @@ public class TransmitterRepair : MonoBehaviour, IInteractable
             repairedVisual.SetActive(true);
 
         GameManager.Instance.WinGame();
+
+        if (broadcastAudio != null)
+        {
+            broadcastAudio.PlayDelayed(0.5f);
+        }
     }
 }
