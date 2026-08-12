@@ -6,7 +6,7 @@ public class PlayerInteractor : MonoBehaviour
     [Header("Interaction Settings")]
     [SerializeField] private Camera playerCamera;
     [SerializeField] private float interactionDistance = 3f;
-    [SerializeField] private LayerMask interactionLayers = ~0; // default: everything
+    [SerializeField] private LayerMask interactionLayers = ~0; 
 
     private IInteractable currentInteractable;
     private HUDController hud;
@@ -24,7 +24,6 @@ public class PlayerInteractor : MonoBehaviour
     {
         FindInteractable();
 
-        // Handle E key input using the new Input System
         if (currentInteractable != null &&
             Keyboard.current != null &&
             Keyboard.current.eKey.wasPressedThisFrame)

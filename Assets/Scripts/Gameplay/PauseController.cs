@@ -15,19 +15,16 @@ public class PauseController : MonoBehaviour
         Time.timeScale = 1f;
         isPaused = false;
 
-        // Start locked for FPS look
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
 
     private void Update()
     {
-        // P → pause (only if not already paused)
         if (!isPaused && Input.GetKeyDown(KeyCode.P))
         {
             Pause();
         }
-        // (You can keep resume via button only)
     }
 
     public void Pause()
@@ -39,12 +36,10 @@ public class PauseController : MonoBehaviour
 
         Time.timeScale = 0f;
 
-        // Unlock cursor so you can click UI
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
     }
 
-    // Called by Resume button
     public void Resume()
     {
         isPaused = false;
@@ -54,7 +49,6 @@ public class PauseController : MonoBehaviour
 
         Time.timeScale = 1f;
 
-        // Lock cursor again for FPS look
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
